@@ -14,7 +14,7 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">CREAR USUARIO nuevo
+            <div class="card-header">CREAR USUARIO
             </div>
 
             <div class="card-body">
