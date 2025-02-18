@@ -100,7 +100,8 @@
     <nav class="navbar navbar-static-top">
         <a class='logo' href='index.html'>
             <!-- Agrega la clase de ícono a tu imagen de logo o ícono de logo para agregar margen -->
-            <img src="img/logo.png" alt="imagen no encontrada">
+            <!-- <img src="img/logo.png" alt="imagen no encontrada"> -->
+            <img src="{{ asset('imgmpg/logoletrasbn.png') }}" alt="Awesome Image" id="skin-logo-img" class="img-fluid" style="max-width: 80%;" />
         </a>
         <!-- Barra de navegación del encabezado: el estilo se puede encontrar en el encabezado -->
         <!-- Botón de alternar la barra lateral -->

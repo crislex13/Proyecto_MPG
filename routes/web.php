@@ -18,20 +18,18 @@ use App\Http\Controllers\ClientController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//ruta de welcome
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
+//ruta para entrar a home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-
-
+//ruta para roles y permisos
 Route::group(['middleware' => ['auth']], function() {
     
 });
+// rutas de los controladores
 Route::resource('users', UserController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('permissions', PermissionController::class);
@@ -39,10 +37,4 @@ Route::resource('posts', PostController::class);
 Route::resource('clients', ClientController::class);
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

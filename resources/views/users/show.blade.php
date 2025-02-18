@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+<!-- @section('content') -->
 <aside class="right-side">
 <div class="container">
     <div class="justify-content-center">
@@ -9,11 +9,8 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Usuario
+            <div class="card-header">USUARIO
                 @can('role-create')
-                    <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('users.index') }}">Atras</a>
-                    </span>
                 @endcan
             </div>
             <div class="card-body">
@@ -30,6 +27,8 @@
                     ********
                 </div>
             </div>
+            <button type="button" class="btn btn-primary"
+                        onclick="window.location='{{ route('users.index') }}'">Atras</button>
         </div>
     </div>
 </div>
