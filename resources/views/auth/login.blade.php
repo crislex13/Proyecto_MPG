@@ -25,7 +25,7 @@
     <div class="container">
         <div class="full-content-center">
             <div class="box bounceInLeft animated">
-                <img src="img/logo.png" class="logo" alt="image not found">
+                <img src="{{ asset('imgmpg/logobnp.png') }}" alt="Awesome Image" id="skin-logo-img" class="img-fluid" style="max-width: 30%;" />
                 <h3 class="text-center">Iniciar sesión</h3>
                 <form class="form" id="log_in" method="POST" action="{{ route('login') }}">
                 @csrf

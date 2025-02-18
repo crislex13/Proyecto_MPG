@@ -74,7 +74,7 @@
                                                         
                             @if (Route::has('login'))
                                 @auth
-                            <li><a href="{{ url('/home') }}" class="flip-flop-btn"><span data-hover="Home">HOME</span></a></li>
+                            <li><a href="{{ url('/home') }}" class="flip-flop-btn"><span data-hover="Home">PANEL PRINCIPAL</span></a></li>
                                 @else
                             <li><a href="{{ route('login') }}" class="flip-flop-btn"><span data-hover="LOGIN">LOGIN</span></a></li>
                                 @if (Route::has('register'))

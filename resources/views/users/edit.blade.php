@@ -17,7 +17,6 @@
         <div class="card">
             <div class="card-header">EDITAR USUARIO
             </div>
-
             <div class="card-body">
                 {!! Form::model($user, ['route' => ['users.update', $user->id], 'method'=>'PATCH']) !!}
                     <div class="form-group">

@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('content')
+<!-- @section('content') -->
+<aside class="right-side">
     <div class="container">
         <div class="justify-content-center">
             @if (\Session::has('success'))
@@ -8,11 +9,8 @@
                 </div>
             @endif
             <div class="card">
-                <div class="card-header">Clientes
+                <div class="card-header">CLIENTES
                     @can('role-create')
-                        <span class="float-right">
-                            <a class="btn btn-primary" href="{{ route('clients.index') }}">Back</a>
-                        </span>
                     @endcan
                 </div>
                 <div class="card-body">
@@ -52,8 +50,11 @@
                         <strong>Plan:</strong>
                         {{ $client->plan }}
                     </div>
+                    <button type="button" class="btn btn-primary"
+                        onclick="window.location='{{ route('clients.index') }}'">Atras</button>
                 </div>
             </div>
         </div>
     </div>
+</aside>
 @endsection

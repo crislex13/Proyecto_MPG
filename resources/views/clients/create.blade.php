@@ -1,11 +1,12 @@
 @extends('layouts.app')
-@section('content')
+<!-- @section('content') -->
 <aside class="right-side">
     <div class="container">
         <div class="justify-content-center">
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
-                    <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+                <strong>Upps!</strong> 
+                Algo salió mal, verifique los errores a continuación.<br><br>
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -14,10 +15,7 @@
                 </div>
             @endif
             <div class="card">
-                <div class="card-header">Crear Cliente
-                    <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('clients.index') }}">Clients</a>
-                    </span>
+                <div class="card-header">AGREGAR CLIENTE
                 </div>
                 <div class="card-body">
                     {!! Form::open(array('route' => 'clients.store', 'method' => 'POST')) !!}
@@ -57,8 +55,8 @@
                         <strong>Plan:</strong>
                         {!! Form::text('plan', null, array('placeholder' => 'Plan', 'class' => 'form-control')) !!}
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <button type="button" class="btn btn-danger" onclick="window.location='{{ route('clients.index') }}'">Cancelar</button>
                     {!! Form::close() !!}
                 </div>
             </div>

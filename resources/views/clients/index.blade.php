@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+<!-- @section('content') -->
 <aside class="right-side">
     <div class="container">
         <div class="justify-content-center">
@@ -9,11 +9,8 @@
                 </div>
             @endif
             <div class="card">
-                <div class="card-header">Clients
+                <div class="card-header">CLIENTES
                     @can('role-create')
-                        <span class="float-right">
-                            <a class="my-button" href="{{ route('clients.create') }}">Nuevo Cliente</a>
-                        </span>
                     @endcan
                 </div>
                 <div class="card-body">
@@ -30,7 +27,7 @@
                                 <th>Correo Electrónico</th>
                                 <th>Disciplina</th>
                                 <th>Plan</th>
-                                <th width="280px">Action</th>
+                                <th width="280px">Accion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,13 +44,13 @@
                                     <td>{{ $client->disciplina }}</td>
                                     <td>{{ $client->plan }}</td>
                                     <td>
-                                        <a class="btn btn-success" href="{{ route('clients.show', $client->id) }}">Show</a>
+                                        <a class="btn btn-success" href="{{ route('clients.show', $client->id) }}">Ver</a>
                                         @can('client-edit')
-                                            <a class="btn btn-primary" href="{{ route('clients.edit', $client->id) }}">Edit</a>
+                                            <a class="btn btn-primary" href="{{ route('clients.edit', $client->id) }}">Editar</a>
                                         @endcan
                                         @can('client-delete')
                                             {!! Form::open(['method' => 'DELETE', 'route' => ['clients.destroy', $client->id], 'style' => 'display:inline']) !!}
-                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                            {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!}
                                         @endcan
                                     </td>
@@ -61,34 +58,14 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <button type="button" class="btn btn-primary"
+                        onclick="window.location='{{ route('clients.create') }}'">
+                        Agregar Cliente
+                    </button>
                     {{ $data->appends($_GET)->links() }}
                 </div>
             </div>
         </div>
     </div>
 </aside>
-
-    <style>
-        /* .my-button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .my-button:hover {
-            background-color: #45a049;
-        }
-
-        .my-button:active {
-            background-color: #3e8e41;
-        }
-
-        .container {
-            padding: 20px;
-            /* 20px en todos los lados */
-        } */
-    </style>
 @endsection
