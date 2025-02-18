@@ -1,5 +1,6 @@
 @extends('layouts.app')
 <!-- @section('content') -->
+
 <aside class="right-side">
     <div class="container">
         <div class="justify-content-center">

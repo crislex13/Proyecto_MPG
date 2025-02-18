@@ -9,20 +9,17 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Role
+            <div class="card-header">ROL
                 @can('role-create')
-                    <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('roles.index') }}">Back</a>
-                    </span>
                 @endcan
             </div>
             <div class="card-body">
                 <div class="lead">
-                    <strong>Name:</strong>
+                    <strong>Nombre:</strong>
                     {{ $role->name }}
                 </div>
                 <div class="lead">
-                    <strong>Permissions:</strong>
+                    <strong>Permisos:</strong>
                     @if(!empty($rolePermissions))
                         @foreach($rolePermissions as $permission)
                             <label class="badge badge-success">{{ $permission->name }}</label>
@@ -30,6 +27,8 @@
                     @endif
                 </div>
             </div>
+            <button type="button" class="btn btn-primary"
+                        onclick="window.location='{{ route('roles.index') }}'">Atras</button>
         </div>
     </div>
 </div>

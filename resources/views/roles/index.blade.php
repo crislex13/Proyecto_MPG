@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+<!-- @section('content') -->
 <div class="container">
     <div class="justify-content-center">
         @if (\Session::has('success'))
@@ -8,11 +8,8 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Roles
+            <div class="card-header">ROLES
                 @can('role-create')
-                    <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('roles.create') }}">New Role</a>
-                    </span>
                 @endcan
             </div>
             <div class="card-body">
@@ -20,8 +17,8 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th>Nombre</th>
+                            <th width="280px">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,13 +27,13 @@
                                 <td>{{ $role->id }}</td>
                                 <td>{{ $role->name }}</td>
                                 <td>
-                                    <a class="btn btn-success" href="{{ route('roles.show',$role->id) }}">Show</a>
+                                    <a class="btn btn-success" href="{{ route('roles.show',$role->id) }}">Ver</a>
                                     @can('role-edit')
-                                        <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                                        <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
                                     @endcan
                                     @can('role-delete')
                                         {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
                                     @endcan
                                 </td>
@@ -44,6 +41,10 @@
                         @endforeach
                     </tbody>
                 </table>
+                <button type="button" class="btn btn-primary"
+                        onclick="window.location='{{ route('roles.create') }}'">
+                        Agregar Rol
+                    </button>
                 {{ $data->render() }}
             </div>
         </div>

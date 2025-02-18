@@ -9,7 +9,7 @@
                 </div>
             @endif
             <div class="card">
-                <div class="card-header">CLIENTES
+                <div class="card-header">CLIENTE
                     @can('role-create')
                     @endcan
                 </div>

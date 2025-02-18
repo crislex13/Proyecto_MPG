@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+<!-- @section('content') -->
 <div class="container">
     <div class="justify-content-center">
         @if (\Session::has('success'))
@@ -8,11 +8,9 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Permissions
+            <div class="card-header">PERMISOS
                 @can('role-create')
-                    <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('permissions.create') }}">New Permission</a>
-                    </span>
+
                 @endcan
             </div>
             <div class="card-body">
@@ -20,8 +18,8 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th>Nombre</th>
+                            <th width="280px">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,13 +28,13 @@
                                 <td>{{ $permission->id }}</td>
                                 <td>{{ $permission->name }}</td>
                                 <td>
-                                    <a class="btn btn-success" href="{{ route('permissions.show',$permission->id) }}">Show</a>
+                                    <a class="btn btn-success" href="{{ route('permissions.show',$permission->id) }}">Ver</a>
                                     @can('role-edit')
-                                        <a class="btn btn-primary" href="{{ route('permissions.edit',$permission->id) }}">Edit</a>
+                                        <a class="btn btn-primary" href="{{ route('permissions.edit',$permission->id) }}">Editar</a>
                                     @endcan
                                     @can('role-delete')
                                         {!! Form::open(['method' => 'DELETE','route' => ['permissions.destroy', $permission->id],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
                                     @endcan
                                 </td>
@@ -44,6 +42,10 @@
                         @endforeach
                     </tbody>
                 </table>
+                <button type="button" class="btn btn-primary"
+                        onclick="window.location='{{ route('permissions.create') }}'">
+                        Agregar permiso
+                    </button>
                 {{ $data->appends($_GET)->links() }}
             </div>
         </div>
