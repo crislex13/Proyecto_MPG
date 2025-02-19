@@ -17,7 +17,6 @@ class PermissionController extends Controller
         $this->middleware('permission:permission-delete', ['only' => ['destroy']]);
     }
 
-
     public function index(Request $request)
     {
         $data = Permission::orderBy('id','DESC')->paginate(5);
@@ -25,12 +24,10 @@ class PermissionController extends Controller
         return view('permissions.index', compact('data'));
     }
 
-
     public function create()
     {
         return view('permissions.create');
     }
-
 
     public function store(Request $request)
     {
@@ -41,9 +38,8 @@ class PermissionController extends Controller
         Permission::create(['name' => $request->input('name')]);
 
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission created successfully.');
+            ->with('success', 'Permiso creado exitosamente.'); // Mensaje de éxito al crear un permiso.
     }
-
 
     public function show($id)
     {
@@ -59,7 +55,6 @@ class PermissionController extends Controller
         return view('permissions.edit', compact('permission'));
     }
 
-
     public function update(Request $request, $id)
     {
         $this->validate($request, [
@@ -71,15 +66,14 @@ class PermissionController extends Controller
         $permission->save();
 
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission updated successfully.');
+            ->with('success', 'Permiso actualizado exitosamente.'); // Mensaje de éxito al actualizar un permiso.
     }
-
 
     public function destroy($id)
     {
         Permission::find($id)->delete();
 
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission deleted successfully');
+            ->with('success', 'Permiso eliminado exitosamente.'); // Mensaje de éxito al eliminar un permiso.
     }
 }

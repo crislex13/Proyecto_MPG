@@ -25,14 +25,12 @@ class RoleController extends Controller
         return view('roles.index', compact('data'));
     }
 
-
     public function create()
     {
         $permission = Permission::get();
 
         return view('roles.create', compact('permission'));
     }
-
 
     public function store(Request $request)
     {
@@ -45,7 +43,7 @@ class RoleController extends Controller
         $role->syncPermissions($request->input('permission'));
 
         return redirect()->route('roles.index')
-            ->with('success', 'Role created successfully.');
+            ->with('success', 'Rol creado exitosamente.'); // Mensaje de éxito al crear un rol.
     }
 
     public function show($id)
@@ -58,7 +56,6 @@ class RoleController extends Controller
         return view('roles.show', compact('role', 'rolePermissions'));
     }
 
-
     public function edit($id)
     {
         $role = Role::find($id);
@@ -70,7 +67,6 @@ class RoleController extends Controller
 
         return view('roles.edit', compact('role', 'permission', 'rolePermissions'));
     }
-
 
     public function update(Request $request, $id)
     {
@@ -87,15 +83,14 @@ class RoleController extends Controller
         $permissionNames = Permission::whereIn('id', $request->input('permission'))->pluck('name');
         $role->syncPermissions($permissionNames);
         return redirect()->route('roles.index')
-            ->with('success', 'Role updated successfully.');
+            ->with('success', 'Rol actualizado exitosamente.'); // Mensaje de éxito al actualizar un rol.
     }
-
 
     public function destroy($id)
     {
         Role::find($id)->delete();
 
         return redirect()->route('roles.index')
-            ->with('success', 'Role deleted successfully');
+            ->with('success', 'Rol eliminado exitosamente.'); // Mensaje de éxito al eliminar un rol.
     }
 }

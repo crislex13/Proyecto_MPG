@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     /**
-     * create a new instance of the class
+     * Crear una nueva instancia de la clase
      *
      * @return void
      */
@@ -24,15 +24,13 @@ class PostController extends Controller
     {
         $data = Post::latest()->paginate(5);
 
-        return view('posts.index',compact('data'));
+        return view('posts.index', compact('data'));
     }
-
 
     public function create()
     {
         return view('posts.create');
     }
-
 
     public function store(Request $request)
     {
@@ -45,9 +43,8 @@ class PostController extends Controller
         Post::create($input);
 
         return redirect()->route('posts.index')
-            ->with('success','Post created successfully.');
+            ->with('success', 'Publicación creada exitosamente.'); // Mensaje de éxito al crear una publicación.
     }
-
 
     public function show($id)
     {
@@ -56,14 +53,12 @@ class PostController extends Controller
         return view('posts.show', compact('post'));
     }
 
-
     public function edit($id)
     {
         $post = Post::find($id);
 
-        return view('posts.edit',compact('post'));
+        return view('posts.edit', compact('post'));
     }
-
 
     public function update(Request $request, $id)
     {
@@ -77,15 +72,14 @@ class PostController extends Controller
         $post->update($request->all());
 
         return redirect()->route('posts.index')
-            ->with('success', 'Post updated successfully.');
+            ->with('success', 'Publicación actualizada exitosamente.'); // Mensaje de éxito al actualizar una publicación.
     }
-
 
     public function destroy($id)
     {
         Post::find($id)->delete();
 
         return redirect()->route('posts.index')
-            ->with('success', 'Post deleted successfully.');
+            ->with('success', 'Publicación eliminada exitosamente.'); // Mensaje de éxito al eliminar una publicación.
     }
 }
